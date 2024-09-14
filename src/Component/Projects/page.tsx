@@ -1,7 +1,4 @@
 "use client"
-import { DirectionAwareHover } from "@/components/ui/direction-aware-hover";
-import Link from "next/link";
-import { ImNewTab } from "react-icons/im";
 import Project1 from "./Project1";
 import Project2 from "./Project2";
 

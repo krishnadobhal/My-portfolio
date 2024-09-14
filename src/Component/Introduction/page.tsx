@@ -1,13 +1,8 @@
 "use client"
 import React from 'react';
-import { Sora } from 'next/font/google'
 import { Person } from './person_svg';
 import SocialComponent from './Social';
 
-const sora = Sora({
-  subsets: ['latin'],
-  
-})
 
 const Intro = () => {
     return (
@@ -15,7 +10,7 @@ const Intro = () => {
             <div className='grid grid-cols-12 text-black '> 
                 <div className='col-span-8 flex flex-col'>
                     <div>
-                        <span className='text-6xl '>Hello I'am</span>
+                        <span className='text-6xl '>Hello I&apos;m</span>
                         <span className="text-6xl font-black px-3">Krishna Dobhal</span>
                     </div>
                     <div className='mt-4'>

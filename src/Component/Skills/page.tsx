@@ -1,5 +1,4 @@
 "use client";
-import { FaJs } from "react-icons/fa";
 import { RiNextjsFill } from "react-icons/ri";
 import { SiTypescript } from "react-icons/si";
 import { SiReactquery } from "react-icons/si";
