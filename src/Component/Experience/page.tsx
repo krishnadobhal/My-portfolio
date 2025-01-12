@@ -30,11 +30,11 @@ export default function Experience() {
                     <div className="grid grid-cols-12">
                         <div className="col-span-2"></div>
                         <div className="col-span-10 text-xl">
-                            <ul className="list-disc gap-y-2">
-                                <li>Implemented CSPM architecture using Prisma Cloud Security , improving security of cloud environment by 40%.</li>
-                                <li>Added central visibility on multicloud.</li>
-                                <li>Tool to monitoring continuous compliance.</li>
-                                <li>Helped in encryption of S3 buckets.</li>
+                            <ul className="list-disc">
+                                <li className="mb-2">Implemented CSPM architecture using Prisma Cloud Security, improving security of cloud environment by 40%.</li>
+                                <li className="mb-2">Enforced IAM key rotation policies, securing access control and minimizing credential exposure risks.</li>
+                                <li className="mb-2">Contributed to the encryption of S3 buckets for improved data security.</li>
+                                <li className="mb-2">Enhanced centralized visibility of cloud resources by integrating Prisma with AWS, improving monitoring efficiency by 30%.</li>
                             </ul>
                         </div>
                     </div>

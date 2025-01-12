@@ -2,11 +2,12 @@
 import { RiNextjsFill } from "react-icons/ri";
 import { SiTypescript } from "react-icons/si";
 import { SiReactquery } from "react-icons/si";
-import { SiApollographql } from "react-icons/si";
 import { GrGraphQl } from "react-icons/gr";
 import { DiNodejs } from "react-icons/di";
 import { BiLogoPostgresql } from "react-icons/bi";
 import { SiPrisma } from "react-icons/si";
+import { SiApachekafka } from "react-icons/si";
+
 
 export const Skills = () => {
     return (
@@ -14,6 +15,10 @@ export const Skills = () => {
                 <div className=" text-6xl"><span>My</span><span className="font-extrabold ml-5">Skills</span></div>
                 <div className="flex flex-col gap-y-10 text-8xl w-full items-center">
                         <div className="flex justify-evenly w-full ">
+                            <div className=" flex flex-col border-2 py-10 items-center px-16 rounded-xl border-black gap-4 hover:text-white hover:bg-black transition delay-50 ">
+                                <SiApachekafka />
+                                <div className="text-sm">kafka</div>
+                            </div>
                             <div className=" flex flex-col border-2 py-10 items-center px-16 rounded-xl border-black gap-4 hover:text-white hover:bg-black transition delay-50" >
                                 <RiNextjsFill  className=""/>
                                 <div className="text-sm">NextJs</div>
@@ -25,10 +30,6 @@ export const Skills = () => {
                             <div className=" flex flex-col border-2 py-10 items-center px-16 rounded-xl border-black gap-4 hover:text-white hover:bg-black transition delay-50 ">
                                 <SiReactquery />
                                 <div className="text-sm">TanStack Query</div>
-                            </div>
-                            <div className=" flex flex-col border-2 py-10 items-center px-16 rounded-xl border-black gap-4 hover:text-white hover:bg-black transition delay-50 ">
-                                <SiApollographql />
-                                <div className="text-sm">Apollo Sever</div>
                             </div>
                         </div>
                         <div className="flex justify-evenly w-full">

@@ -9,7 +9,7 @@ import { Skills } from "../Component/Skills/page";
 
 export default function Home() {
   return (
-    <div>
+    <div className="">
     <div className="grid grid-cols-12 mt-8">
       <div className="col-span-1"></div>
       <div className="col-span-10 flex flex-col ">
@@ -17,14 +17,14 @@ export default function Home() {
           <Navbar/>
           <Intro />
         </div>
-        <Skills/>
+        <div id="#skills"><Skills/></div>
       </div>
       <div className="col-span-1"></div>
     </div>
     <div className=" w-full">
-        <Experience/>
-        <About/>
-        <Project  />
+        <div id="#experience"><Experience/></div>
+        <div id="#about"><About/></div>
+        <div id="#project"><Project/></div>
         <Footer/>
       </div>
     

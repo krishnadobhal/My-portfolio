@@ -5,7 +5,7 @@ import { ImNewTab } from "react-icons/im";
 export default function Project1(){
     return(
         <div className="grid grid-cols-12">
-                        <div className="col-span-5">
+                        <div className="col-span-5 flex items-center">
                             <DirectionAwareHover 
                             imageUrl="https://res.cloudinary.com/dpz1gkni7/image/upload/v1726238576/twitter_zzrkr1.png">
                                 Twitter CLone
@@ -15,10 +15,10 @@ export default function Project1(){
                         <div className="col-span-6 flex flex-col pt-5 pb-10 gap-6">
                             <div className="flex items-center gap-10" >
                                 <div className="text-6xl font-extrabold">
-                                    01
+                                    03
                                 </div>
                                 <div className="text-4xl">
-                                    <Link href={"/"}>
+                                    <Link href={"https://github.com/krishnadobhal/Twitter_clone"}>
                                         <ImNewTab />
                                     </Link>
                                 </div>

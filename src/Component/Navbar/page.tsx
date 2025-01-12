@@ -1,4 +1,5 @@
 "use client"
+import Link from "next/link";
 import { Middle } from "./middle";
 import { Resume } from "./Resume_icon";
 import Svg from "./svg";
@@ -17,7 +18,7 @@ export default function Navbar(){
                         <div className="text-black">Portfolio</div>
                     </div>
                     <Middle/>
-                    <Resume/>
+                    <Link href={"https://drive.google.com/file/d/1UokF9BOQnfhUb1OE23f90JhczI5L4ntq/view?usp=drive_link"}><Resume/></Link>
                 </div>
             </div>
     )

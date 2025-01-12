@@ -7,24 +7,24 @@ export default function Project2(){
         <div className="grid grid-cols-12">
                         <div className="col-span-5 flex items-center">
                             <DirectionAwareHover 
-                            imageUrl="https://res.cloudinary.com/dpz1gkni7/image/upload/v1726248908/e-commerce_oql45r.png">
-                                Pet Palace
+                            imageUrl="https://res.cloudinary.com/dpz1gkni7/image/upload/v1736665851/Portfolio/tkpv9ldbrv6huo5m5mve.jpg">
+                                Video Streaming
                             </DirectionAwareHover>
                         </div>
                         <div className="col-span-1"></div>
                         <div className="col-span-6 flex flex-col pt-5 pb-10 gap-6">
                             <div className="flex items-center gap-10" >
                                 <div className="text-6xl font-extrabold">
-                                    02
+                                    01
                                 </div>
                                 <div className="text-4xl">
-                                    <Link href={"https://github.com/1234bhaskar/Pet-Palace"}>
+                                    <Link href={"https://github.com/krishnadobhal/Video-Streaming"}>
                                         <ImNewTab />
                                     </Link>
                                 </div>
                             </div>
                             
-                            <div className="text-3xl font-bold ml-5">Pet Palace</div>
+                            <div className="text-3xl font-bold ml-5">Video Streaming</div>
                             <div className="text-lg ml-9">
                                 <ul className="gap-y-2 list-disc">
                                     <li>

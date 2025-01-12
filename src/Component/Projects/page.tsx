@@ -1,6 +1,7 @@
 "use client"
 import Project1 from "./Project1";
 import Project2 from "./Project2";
+import Project3 from "./project3";
 
 export default function Project(){
     return(
@@ -12,8 +13,9 @@ export default function Project(){
                 <div className="grid grid-cols-12">
                     <div className="col-span-1"></div>
                     <div className="flex flex-col gap-20 col-span-10">
-                        <div><Project1/></div>
+                        <div><Project3/></div>
                         <div><Project2/></div>
+                        <div><Project1/></div>
                     </div>
                     <div className="col-span-1 "></div>
                 </div>  
