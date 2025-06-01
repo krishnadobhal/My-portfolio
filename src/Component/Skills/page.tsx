@@ -5,7 +5,7 @@ import { SiReactquery } from "react-icons/si";
 import { GrGraphQl } from "react-icons/gr";
 import { DiNodejs } from "react-icons/di";
 import { BiLogoPostgresql } from "react-icons/bi";
-import { SiPrisma } from "react-icons/si";
+import { FaLaravel } from "react-icons/fa";
 import { SiApachekafka } from "react-icons/si";
 
 
@@ -46,8 +46,8 @@ export const Skills = () => {
                                 <div className="text-sm">PostgresSQL</div>
                             </div>
                             <div className=" flex flex-col border-2 py-10 items-center px-16 rounded-xl border-black gap-4 hover:text-white hover:bg-black transition delay-50 ">
-                                <SiPrisma />
-                                <div className="text-sm">Prisma</div>
+                                <FaLaravel />
+                                <div className="text-sm">Laravel</div>
                             </div>
                         </div>
                 </div>

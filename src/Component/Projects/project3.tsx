@@ -28,13 +28,16 @@ export default function Project2(){
                             <div className="text-lg ml-9">
                                 <ul className="gap-y-2 list-disc">
                                     <li>
-                                        Developed a comprehensive pet e-commerce platform using Next.js and React, offering a wide range of products and upcoming video consultation services
+                                        Designed and developed a microservices-based architecture for video upload, transcoding, and streaming using Kafka for asynchronous communication.
                                     </li>
                                     <li>
-                                        Implemented an intuitive user interface with secure authentication (JWT and Google Auth), easy navigation, and streamlined checkout process
+                                        Implemented an Upload Service to handle chunked video uploads, store them in Amazon S3, and trigger events via Kafka for further processing.
                                     </li>
                                     <li>
-                                        Created an advanced semantic product search using vectorDB, enhancing product discoverability and user experience
+                                        Built a Transcode Service with FFmpeg to convert videos into HLS-compatible formats for adaptive streaming.
+                                    </li>
+                                    <li>
+                                        Developed a Watch Service to dynamically serve .m3u8 files for seamless video playback.
                                     </li>
                                 </ul>
                             </div>
