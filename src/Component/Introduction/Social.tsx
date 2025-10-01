@@ -9,9 +9,9 @@ interface SocialComponentProps{
     className?:string
 }
 
-export const SocialComponent:FC<SocialComponentProps> = ({className}) => {
+export const SocialComponent:FC<SocialComponentProps> = ({}) => {
   return (
-    <div className={className}> 
+    <div > 
         <div className='flex gap-7 text-4xl'>
             <div className='border-2 p-3 rounded-xl border-black hover:text-white hover:bg-black transition delay-50'>
                 <Link href={"https://github.com/krishnadobhal/"}>

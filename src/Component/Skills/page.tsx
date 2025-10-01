@@ -13,41 +13,41 @@ export const Skills = () => {
     return (
         <div className="flex flex-col gap-14 justify-center items-center text-black ">
                 <div className=" text-6xl"><span>My</span><span className="font-extrabold ml-5">Skills</span></div>
-                <div className="flex flex-col gap-y-10 text-8xl w-full items-center">
-                        <div className="flex justify-evenly w-full ">
-                            <div className=" flex flex-col border-2 py-10 items-center px-16 rounded-xl border-black gap-4 hover:text-white hover:bg-black transition delay-50 ">
+                <div className=" flex flex-col gap-y-5 text-8xl w-full items-center">  
+                        <div className=" grid grid-cols-2 gap-4 sm:flex sm:justify-evenly w-full ">
+                            <div className="grid px-6 py-6 sm:flex sm:flex-col border-2 sm:py-10 sm:items-center sm:px-16 rounded-xl border-black gap-4 hover:text-white hover:bg-black transition delay-50 ">
                                 <SiApachekafka />
-                                <div className="text-sm">kafka</div>
+                                <div className="flex justify-center text-sm">kafka</div>
                             </div>
-                            <div className=" flex flex-col border-2 py-10 items-center px-16 rounded-xl border-black gap-4 hover:text-white hover:bg-black transition delay-50" >
+                            <div className="grid px-6 py-6 sm:flex sm:flex-col border-2 sm:py-10 sm:items-center sm:px-16 rounded-xl border-black gap-4 hover:text-white hover:bg-black transition delay-50" >
                                 <RiNextjsFill  className=""/>
-                                <div className="text-sm">NextJs</div>
+                                <div className="flex justify-center text-sm">NextJs</div>
                             </div>
-                            <div className=" flex flex-col border-2 py-10 items-center px-16 rounded-xl border-black gap-4 hover:text-white hover:bg-black transition delay-50 ">
+                            <div className="grid px-6 py-6 sm:flex sm:flex-col border-2 sm:py-10 sm:items-center sm:px-16 rounded-xl border-black gap-4 hover:text-white hover:bg-black transition delay-50 ">
                                 <SiTypescript />
-                                <div className="text-sm">TypeScript</div>
+                                <div className="flex justify-center text-sm">TypeScript</div>
                             </div>
-                            <div className=" flex flex-col border-2 py-10 items-center px-16 rounded-xl border-black gap-4 hover:text-white hover:bg-black transition delay-50 ">
+                            <div className="grid px-6 py-6 sm:flex sm:flex-col border-2 sm:py-10 sm:items-center sm:px-16 rounded-xl border-black gap-4 hover:text-white hover:bg-black transition delay-50 ">
                                 <SiReactquery />
-                                <div className="text-sm">TanStack Query</div>
+                                <div className="flex justify-center text-sm">TanStack Query</div>
                             </div>
                         </div>
-                        <div className="flex justify-evenly w-full">
-                            <div className=" flex flex-col border-2 py-10 items-center px-16 rounded-xl border-black gap-4 hover:text-white hover:bg-black transition delay-50 ">
+                        <div className="grid grid-cols-2 gap-4 sm:flex sm:justify-evenly w-full">
+                            <div className="grid px-6 py-6 sm:flex sm:flex-col border-2 sm:py-10 sm:items-center sm:px-16 rounded-xl border-black gap-4 hover:text-white hover:bg-black transition delay-50">
                                 <GrGraphQl />
-                                <div className="text-sm">Graphql</div>
+                                <div className="flex justify-center text-sm">Graphql</div>
                             </div>
-                            <div className="  flex flex-col border-2 py-10 items-center px-16 rounded-xl border-black gap-4 hover:text-white hover:bg-black transition delay-50 ">
+                            <div className="grid px-6 py-6 sm:flex sm:flex-col border-2 sm:py-10 sm:items-center sm:px-16 rounded-xl border-black gap-4 hover:text-white hover:bg-black transition delay-50">
                                 <DiNodejs />
-                                <div className="text-sm">Nodejs</div>
+                                <div className="flex justify-center text-sm">Nodejs</div>
                             </div>
-                            <div className=" flex flex-col border-2 py-10 items-center px-16 rounded-xl border-black gap-4 hover:text-white hover:bg-black transition delay-50 ">
+                            <div className="grid px-6 py-6 sm:flex sm:flex-col border-2 sm:py-10 sm:items-center sm:px-16 rounded-xl border-black gap-4 hover:text-white hover:bg-black transition delay-50">
                                 <BiLogoPostgresql />
-                                <div className="text-sm">PostgresSQL</div>
+                                <div className="flex justify-center text-sm">PostgresSQL</div>
                             </div>
-                            <div className=" flex flex-col border-2 py-10 items-center px-16 rounded-xl border-black gap-4 hover:text-white hover:bg-black transition delay-50 ">
+                            <div className="grid px-6 py-6 sm:flex sm:flex-col border-2 sm:py-10 sm:items-center sm:px-16 rounded-xl border-black gap-4 hover:text-white hover:bg-black transition delay-50">
                                 <FaLaravel />
-                                <div className="text-sm">Laravel</div>
+                                <div className="flex justify-center text-sm">Laravel</div>
                             </div>
                         </div>
                 </div>

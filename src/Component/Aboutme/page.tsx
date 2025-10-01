@@ -10,7 +10,7 @@ export default function About(){
                 <div className="grid grid-cols-12">
                     <div className="col-span-1"></div>
                     <div className="col-span-10 flex gap-14">
-                        <div>
+                        <div className="hidden sm:block">
                             <SVG/>
                         </div>
                         <div className="flex flex-col py-6 text-xl gap-4">
