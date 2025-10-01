@@ -9,25 +9,16 @@ import { Skills } from "../Component/Skills/page";
 
 export default function Home() {
   return (
-    <div className="">
-    <div className="grid grid-cols-12 mt-8">
-      <div className="col-span-1"></div>
-      <div className="col-span-10 flex flex-col ">
-        <div className=" h-[75vh] sm:h-[96vh] flex flex-col gap-20 sm:gap-32">
-          <Navbar/>
-          <Intro />
-        </div>
-        <div id="#skills"><Skills/></div>
+    <div className="min-h-screen">
+      <div className="w-full md:h-screen flex flex-col justify-start">
+        <Navbar />
+        <Intro />
       </div>
-      <div className="col-span-1"></div>
-    </div>
-    <div className=" w-full">
-        <div id="#experience"><Experience/></div>
-        <div id="#about"><About/></div>
-        <div id="#project"><Project/></div>
-        <Footer/>
-      </div>
-    
+      <div id="skills"><Skills /></div>
+      <div id="experience"><Experience /></div>
+      <div id="about"><About /></div>
+      <div id="project"><Project /></div>
+      <Footer />
     </div>
   );
 }

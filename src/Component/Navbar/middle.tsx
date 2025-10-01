@@ -18,16 +18,16 @@ export const Middle = () => {
   return (
     <div className="text-black flex justify-between mx-10 gap-10 font-bold text-xl">
       <div className="hover:underline hover:text-zinc-600">
-        <button onClick={() => setScrollTarget('#about')}>About me</button>
+        <button onClick={() => setScrollTarget('about')}>About me</button>
       </div>
       <div className="hover:underline hover:text-zinc-600">
-        <button onClick={() => setScrollTarget('#skills')}>Skills</button>
+        <button onClick={() => setScrollTarget('skills')}>Skills</button>
       </div>
       <div className="hover:underline hover:text-zinc-600">
-        <button onClick={() => setScrollTarget('#project')}>Project</button>
+        <button onClick={() => setScrollTarget('project')}>Project</button>
       </div>
       <div className="hover:underline hover:text-zinc-600">
-        <button onClick={() => setScrollTarget('#experience')}>Experience</button>
+        <button onClick={() => setScrollTarget('experience')}>Experience</button>
       </div>
     </div>
   );
