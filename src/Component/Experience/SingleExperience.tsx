@@ -1,6 +1,3 @@
-import { DirectionAwareHover } from "@/components/ui/direction-aware-hover";
-import Link from "next/link";
-import { ImNewTab } from "react-icons/im";
 
 interface ExperienceSectionProps {
     title: string;
