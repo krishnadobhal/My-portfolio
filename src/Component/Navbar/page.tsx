@@ -92,10 +92,10 @@ export default function Navbar() {
                             </div>
 
                             <nav className="flex flex-col gap-3">
-                                <button className="text-left font-bold text-lg hover:underline" onClick={() => scrollAndClose('#about')}>About me</button>
-                                <button className="text-left font-bold text-lg hover:underline" onClick={() => scrollAndClose('#skills')}>Skills</button>
-                                <button className="text-left font-bold text-lg hover:underline" onClick={() => scrollAndClose('#project')}>Project</button>
-                                <button className="text-left font-bold text-lg hover:underline" onClick={() => scrollAndClose('#experience')}>Experience</button>
+                                <button className="text-left font-bold text-lg hover:underline" onClick={() => scrollAndClose('about')}>About me</button>
+                                <button className="text-left font-bold text-lg hover:underline" onClick={() => scrollAndClose('skills')}>Skills</button>
+                                <button className="text-left font-bold text-lg hover:underline" onClick={() => scrollAndClose('project')}>Project</button>
+                                <button className="text-left font-bold text-lg hover:underline" onClick={() => scrollAndClose('experience')}>Experience</button>
                             </nav>
 
                             <div className="mt-auto">

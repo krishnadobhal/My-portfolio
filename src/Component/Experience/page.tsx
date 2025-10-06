@@ -45,7 +45,7 @@ export default function Experience() {
         <div className="text-white mt-32 flex flex-col gap-10 bg-black" id="experience">
             <div className="mt-16 flex flex-col gap-12 mb-28">
                 <div className="flex flex-col items-center">
-                    <div className="text-4xl md:text-6xl"><span>My</span><span className="font-extrabold ml-6">Experience</span></div>
+                    <div className="text-5xl md:text-6xl"><span>My</span><span className="font-extrabold ml-3 md:ml-6">Experience</span></div>
                 </div>
                 {data.map((exp, index) => (
                     <div key={index}>
