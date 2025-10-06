@@ -10,7 +10,7 @@ const Intro = () => {
         <div className='pt-20 px-6'>
             <div className='flex-col md:grid md:grid-cols-12 text-black'>
                 <div className='md:col-span-4'>
-                    <div className='text-md'>
+                    <div className='hidden md:block'>
                         <Person />
                     </div>
                 </div>

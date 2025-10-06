@@ -74,6 +74,7 @@ export default function Project() {
                         {data.map((project, index) => (
                             <div key={index}>
                                 <ProjectSection
+                                    index={index + 1}
                                     title={project.title}
                                     imageUrl={project.img_url}
                                     description={project.description}
