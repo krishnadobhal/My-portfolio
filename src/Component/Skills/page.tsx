@@ -5,7 +5,6 @@ import { SiReactquery } from "react-icons/si";
 import { GrGraphQl } from "react-icons/gr";
 import { DiNodejs } from "react-icons/di";
 import { BiLogoPostgresql } from "react-icons/bi";
-import { FaLaravel } from "react-icons/fa";
 import { SiSpring } from "react-icons/si";
 import { SiApachekafka } from "react-icons/si";
 
