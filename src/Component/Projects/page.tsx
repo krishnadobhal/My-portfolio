@@ -39,7 +39,7 @@ const data = [
             </ul>
         ),
         link: "https://github.com/krishnadobhal/E-commerce-Platform",
-        img_url: "https://res.cloudinary.com/dpz1gkni7/image/upload/v1736665851/Portfolio/ecommerce.jpg"
+        img_url: "https://res.cloudinary.com/dpz1gkni7/image/upload/v1726248908/e-commerce_oql45r.png"
     },
     {
         title: "Twitter Clone",
@@ -63,14 +63,14 @@ const data = [
 
 export default function Project() {
     return (
-        <div className="mt-16 py-20 bg-black" id="project">
-            <div className="flex flex-col gap-24 text-white ">
+        <div className="mt-16 py-20 px-10    bg-black md:px-0" id="project">
+            <div className="flex flex-col gap-16 md:gap-24 text-white">
                 <div className="flex justify-center">
-                    <div className=" text-6xl font-extrabold">Projects</div>
+                    <div className="text-4xl md:text-6xl font-extrabold text-center">Projects</div>
                 </div>
-                <div className="grid grid-cols-12">
-                    <div className="col-span-1"></div>
-                    <div className="flex flex-col gap-20 col-span-10">
+                <div className="grid grid-cols-1 md:grid-cols-12">
+                    <div className="hidden md:block md:col-span-1"></div>
+                    <div className="flex flex-col gap-16 md:gap-20 col-span-1 md:col-span-10">
                         {data.map((project, index) => (
                             <div key={index}>
                                 <ProjectSection
@@ -83,7 +83,7 @@ export default function Project() {
                             </div>
                         ))}
                     </div>
-                    <div className="col-span-1 "></div>
+                    <div className="hidden md:block md:col-span-1"></div>
                 </div>
             </div>
         </div>

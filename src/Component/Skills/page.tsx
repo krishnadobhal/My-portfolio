@@ -6,17 +6,19 @@ import { GrGraphQl } from "react-icons/gr";
 import { DiNodejs } from "react-icons/di";
 import { BiLogoPostgresql } from "react-icons/bi";
 import { FaLaravel } from "react-icons/fa";
+import { SiSpring } from "react-icons/si";
 import { SiApachekafka } from "react-icons/si";
+
 
 const data = [
     { skill: "kafka", icon: <SiApachekafka /> },
     { skill: "NextJs", icon: <RiNextjsFill /> },
+    { skill: "Spring Boot", icon: <SiSpring /> },
     { skill: "TypeScript", icon: <SiTypescript /> },
     { skill: "TanStack Query", icon: <SiReactquery /> },
     { skill: "Graphql", icon: <GrGraphQl /> },
     { skill: "Nodejs", icon: <DiNodejs /> },
     { skill: "PostgresSQL", icon: <BiLogoPostgresql /> },
-    { skill: "Laravel", icon: <FaLaravel /> },
 ];
 
 export const Skills = () => {

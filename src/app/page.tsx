@@ -6,6 +6,7 @@ import Footer from "../Component/Footer/page";
 import Intro from "../Component/Introduction/page";
 import Project from "../Component/Projects/page";
 import { Skills } from "../Component/Skills/page";
+import Line from "@/Component/Line";
 
 export default function Home() {
   return (
@@ -14,7 +15,8 @@ export default function Home() {
         <Navbar />
         <Intro />
       </div>
-      <div id="skills"><Skills /></div>
+      <Line className="my-16 md:mt-0" />
+      <div id="skills" className=""><Skills /></div>
       <div id="experience"><Experience /></div>
       <div id="about"><About /></div>
       <div id="project"><Project /></div>

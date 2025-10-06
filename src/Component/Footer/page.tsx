@@ -5,7 +5,7 @@ import Link from "next/link";
 export default function Footer() {
     return (
         <div className="bg-white p-4 max-w-full">
-            {/* <div className="grid grid-cols-12">
+            <div className="grid grid-cols-12">
                 <div className="col-span-1"></div>
                 <div className="col-span-8 flex text-2xl items-center text-black font-extrabold gap-3">
                     <Svg />
@@ -28,7 +28,7 @@ export default function Footer() {
                         </div>
                     </div>
                 </div>
-            </div> */}
+            </div>
         </div>
     );
 }
