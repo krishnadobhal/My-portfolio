@@ -20,7 +20,7 @@ const data = [
                 </li>
             </ul>
         ),
-        link: "https://github.com/krishnadobhal/Video_Streaming",
+        link: "https://github.com/krishnadobhal/Video-Streaming",
         img_url: "https://res.cloudinary.com/dpz1gkni7/image/upload/v1736665851/Portfolio/tkpv9ldbrv6huo5m5mve.jpg"
     },
     {
@@ -38,7 +38,7 @@ const data = [
                 </li>
             </ul>
         ),
-        link: "https://github.com/krishnadobhal/E-commerce-Platform",
+        link: "https://github.com/1234bhaskar/Pet-Palace",
         img_url: "https://res.cloudinary.com/dpz1gkni7/image/upload/v1726248908/e-commerce_oql45r.png"
     },
     {

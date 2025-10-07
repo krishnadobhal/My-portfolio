@@ -12,12 +12,16 @@ export const DirectionAwareHover = ({
   childrenClassName,
   imageClassName,
   className,
+  width,
+  height,
 }: {
   imageUrl: string;
   children: React.ReactNode | string;
   childrenClassName?: string;
   imageClassName?: string;
   className?: string;
+  width?: number;
+  height?: number;
 }) => {
   const ref = useRef<HTMLDivElement>(null);
 
@@ -93,8 +97,8 @@ export const DirectionAwareHover = ({
                 "h-full w-full object-cover ",
                 imageClassName
               )}
-              width="1000"
-              height="1000"
+              width={width || 1000}
+              height={height || 1000}
               src={imageUrl}
             />
           </motion.div>
