@@ -22,6 +22,20 @@ export default function RootLayout({
           data-pid="a579f40d-6c51-4292-92d0-89a72fd8a12b"
           strategy="afterInteractive"
         />
+
+        <Script id="reb2b" strategy="afterInteractive">
+          {`
+            !function(key) {
+              if (window.reb2b) return;
+              window.reb2b = { loaded: true };
+              var s = document.createElement("script");
+              s.async = true;
+              s.src = "https://ddwl4m2hdecbv.cloudfront.net/b/" + key + "/" + key + ".js.gz";
+              document.getElementsByTagName("script")[0]
+                .parentNode.insertBefore(s, document.getElementsByTagName("script")[0]);
+            }("DNXY8HJKR7O0");
+          `}
+        </Script>
       </head>
 
       <body className={sora.className}>
