@@ -17,11 +17,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <Script
-          src="https://pub-64d7c9742ee54006ae9f38e02aa8539e.r2.dev/a579f40d-6c51-4292-92d0-89a72fd8a12b/script.min.js"
-          data-pid="a579f40d-6c51-4292-92d0-89a72fd8a12b"
-          strategy="afterInteractive"
-        />
+<script async src="https://pub-64d7c9742ee54006ae9f38e02aa8539e.r2.dev/staging/f92fc7c3-c1bd-45de-8e11-8553a8b3253e/analytics.min.js" data-pid="f92fc7c3-c1bd-45de-8e11-8553a8b3253e"></script>
 
         <Script id="reb2b" strategy="afterInteractive">
           {`
