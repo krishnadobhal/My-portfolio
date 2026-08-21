@@ -1,116 +1,76 @@
-"use client"
-import { Middle } from "./middle";
-import { Resume } from "./Resume_icon";
-import Svg from "./svg";
-import { Sora } from 'next/font/google'
-import { useState } from "react";
+"use client";
 
-const sora = Sora({
-    subsets: ['latin']
-})
+import { useState } from "react";
+import { useLenis } from "@/components/providers/lenis-provider";
+
+const LINKS = [
+  { label: "Work", id: "work" },
+  { label: "Projects", id: "projects" },
+  { label: "Contact", id: "contact" },
+];
 
 export default function Navbar() {
-    const [mobileOpen, setMobileOpen] = useState(false);
+  const [open, setOpen] = useState(false);
+  const lenis = useLenis();
 
-    const scrollAndClose = (id: string) => {
-        const el = document.getElementById(id);
-        if (el) el.scrollIntoView({ behavior: 'smooth' });
-        setMobileOpen(false);
-    };
+  const scrollTo = (id: string) => {
+    const el = document.getElementById(id);
+    if (el) {
+      if (lenis) lenis.scrollTo(el);
+      else el.scrollIntoView({ behavior: "smooth" });
+    }
+    setOpen(false);
+  };
 
-    return (
-        <div className={sora.className}>
-            <div className="flex justify-between items-center w-full font-extrabold text-xl relative mt-4 px-4">
-                <div className="flex gap-3 items-center text-2xl ">
-                    <Svg />
-                    <div className="text-black">Portfolio</div>
-                </div>
+  return (
+    <nav className="sticky top-0 z-50 border-b border-line bg-ink/95 backdrop-blur">
+      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
+        <button onClick={() => scrollTo("top")} className="text-label">
+          Krishna Dobhal
+        </button>
 
-                {/* Desktop middle - hidden on small screens */}
-                <div className="hidden md:block">
-                    <Middle />
-                </div>
-
-                {/* Hamburger for mobile */}
-                <div className="md:hidden flex items-center gap-2">
-                    <button
-                        aria-label={mobileOpen ? "Close menu" : "Open menu"}
-                        aria-expanded={mobileOpen}
-                        onClick={() => setMobileOpen(prev => !prev)}
-                        className="p-2 rounded hover:bg-slate-100"
-                    >
-                        {mobileOpen ? (
-                            // close icon
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M6 6L18 18M6 18L18 6" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                            </svg>
-                        ) : (
-                            // hamburger icon
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M3 6H21M3 12H21M3 18H21" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                            </svg>
-                        )}
-                    </button>
-                </div>
-
-                {/* Resume link - hidden on small, shown on md+ */}
-                <div className="hidden md:block">
-                    <a
-                        href="https://drive.google.com/file/d/1UokF9BOQnfhUb1OE23f90JhczI5L4ntq/view?usp=drive_link"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        <Resume />
-                    </a>
-                </div>
-
-                {/* Mobile sidebar (overlay + sliding panel) */}
-                {mobileOpen && (
-                    <>
-                        {/* backdrop */}
-                        <div
-                            className="fixed inset-0 bg-black/40 z-40 md:hidden"
-                            onClick={() => setMobileOpen(false)}
-                        />
-
-                        {/* sidebar */}
-                        <aside className="fixed right-0 top-0 bottom-0 w-64 bg-white z-50 p-4 md:hidden flex flex-col">
-                            <div className="flex items-center justify-between mb-4">
-                                <div className="flex gap-3 items-center text-2xl">
-                                    <Svg />
-                                    <div className="text-black font-extrabold">Portfolio</div>
-                                </div>
-                                <button
-                                    aria-label="Close menu"
-                                    onClick={() => setMobileOpen(false)}
-                                    className="p-2 rounded hover:bg-slate-100"
-                                >
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M6 6L18 18M6 18L18 6" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                                    </svg>
-                                </button>
-                            </div>
-
-                            <nav className="flex flex-col gap-3">
-                                <button className="text-left font-bold text-lg hover:underline" onClick={() => scrollAndClose('about')}>About me</button>
-                                <button className="text-left font-bold text-lg hover:underline" onClick={() => scrollAndClose('skills')}>Skills</button>
-                                <button className="text-left font-bold text-lg hover:underline" onClick={() => scrollAndClose('project')}>Project</button>
-                                <button className="text-left font-bold text-lg hover:underline" onClick={() => scrollAndClose('experience')}>Experience</button>
-                            </nav>
-
-                            <div className="mt-auto">
-                                <a
-                                    href="https://drive.google.com/file/d/1UokF9BOQnfhUb1OE23f90JhczI5L4ntq/view?usp=drive_link"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                >
-                                    <Resume />
-                                </a>
-                            </div>
-                        </aside>
-                    </>
-                )}
-            </div>
+        <div className="hidden items-center gap-8 md:flex">
+          {LINKS.map((link) => (
+            <button
+              key={link.id}
+              onClick={() => scrollTo(link.id)}
+              className="text-nav text-paper/85 transition-colors hover:text-amber"
+            >
+              {link.label}
+            </button>
+          ))}
         </div>
-    )
+
+        <button
+          aria-label={open ? "Close menu" : "Open menu"}
+          aria-expanded={open}
+          onClick={() => setOpen((v) => !v)}
+          className="flex flex-col gap-1.5 p-2 md:hidden"
+        >
+          <span
+            className={`h-px w-5 bg-paper transition-transform ${open ? "translate-y-[3.5px] rotate-45" : ""}`}
+          />
+          <span
+            className={`h-px w-5 bg-paper transition-transform ${open ? "-translate-y-[3.5px] -rotate-45" : ""}`}
+          />
+        </button>
+      </div>
+
+      {open && (
+        <div className="border-t border-line px-6 py-6 md:hidden">
+          <div className="flex flex-col gap-5">
+            {LINKS.map((link) => (
+              <button
+                key={link.id}
+                onClick={() => scrollTo(link.id)}
+                className="text-nav text-left text-paper/85"
+              >
+                {link.label}
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
+    </nav>
+  );
 }

@@ -1,64 +1,43 @@
-"use client"
-import { SiSuzuki } from "react-icons/si";
-import Image from "next/image";
-import ExperienceSection from "./SingleExperience";
+import { SectionIndex } from "@/components/ui/section-index";
+import ExperienceItem from "./SingleExperience";
 
-const data = [
-    {
-        title: "Antworks Money",
-        description: (
-            <ul className="list-disc">
-                <li className="mb-2"> Working on Ant-Affiliate, a portal where users can sell services like loans and insurance and earn commissions.</li>
-                <li className="mb-2"> Built features to let admins credit or debit commissions to users, using Laravel 12 and JWT for secure access.</li>
-                <li className="mb-2"> Created clean and reliable REST APIs with proper validation, error handling, and support for transaction history.</li>
-            </ul>
-        ),
-        duration: "March 2025 - Present",
-        position: "Software Developer Intern ",
-        logo: (
-            <Image
-                src="https://res.cloudinary.com/dpz1gkni7/image/upload/v1748799387/Portfolio/aqrkcd3jchw5txcamman.jpg"
-                alt="Antworks Logo"
-                width={100}
-                height={100}
-                className="rounded-full object-cover"
-            />)
-    },
-    {
-        title: "Maruti suzuki Indian Limited",
-        description: (
-            <ul className="list-disc">
-                <li className="mb-2">Implemented CSPM architecture using Prisma Cloud Security, improving security of cloud environment by 40%.</li>
-                <li className="mb-2">Enforced IAM key rotation policies, securing access control and minimizing credential exposure risks.</li>
-                <li className="mb-2">Contributed to the encryption of S3 buckets for improved data security.</li>
-                <li className="mb-2">Enhanced centralized visibility of cloud resources by integrating Prisma with AWS, improving monitoring efficiency by 30%.</li>
-            </ul>
-        ),
-        duration: "June/23-Aug/23",
-        position: "Cloud Operation Intern",
-        logo: (<SiSuzuki />)
-    }
-]
+const JOBS = [
+  {
+    title: "Outbox Labs",
+    duration: "FEB 2026 — PRESENT",
+    position: "Software Developer Intern · Bengaluru",
+    bullets: [
+      "Built a dedicated Elasticsearch thread index to replace query-time field collapsing, cutting inbox API latency and eliminating O(N) scans across 95+ rollover indices.",
+      "Designed Lead-Finder: a cost-optimized waterfall across multiple email-finding providers with idempotent webhook verification, cutting cost per verified lead 30–40%.",
+      "Shipped a real-time visitor identity pipeline (tracking script, Kafka, BullMQ) turning 50K+ daily events into enriched B2B profiles with live intent scoring.",
+      "Led full product revamps of ReachInbox and Zapmail — UI, core workflows and platform architecture.",
+    ],
+  },
+  {
+    title: "AntWorks Financial Buddy",
+    duration: "MAR 2025 — FEB 2026",
+    position: "Software Developer Intern · Gurugram",
+    bullets: [
+      "Built Ant-Affiliate, a full-stack platform where users sell financial services and earn commissions.",
+      "Wrote the commission ledger APIs — admin credit/debit flows on Laravel 12 with JWT authentication.",
+      "REST services with strict validation, error handling and full transaction history.",
+    ],
+  },
+];
 
 export default function Experience() {
-    return (
-        <div className="text-white mt-32 flex flex-col gap-10 bg-black" id="experience">
-            <div className="mt-16 flex flex-col gap-12 mb-28">
-                <div className="flex flex-col items-center">
-                    <div className="text-5xl md:text-6xl"><span>My</span><span className="font-extrabold ml-3 md:ml-6">Experience</span></div>
-                </div>
-                {data.map((exp, index) => (
-                    <div key={index}>
-                        <ExperienceSection
-                            title={exp.title}
-                            description={exp.description}
-                            duration={exp.duration}
-                            position={exp.position}
-                            logo={exp.logo}
-                        />
-                    </div>
-                ))}
-            </div>
+  return (
+    <section id="work" className="border-b border-line">
+      <div className="mx-auto grid max-w-6xl gap-10 px-6 py-20 md:grid-cols-12">
+        <div className="md:col-span-3">
+          <SectionIndex label="Experience" number="01" />
         </div>
-    )
+        <div className="md:col-span-9">
+          {JOBS.map((job) => (
+            <ExperienceItem key={job.title} {...job} />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
 }

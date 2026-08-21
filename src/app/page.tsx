@@ -1,25 +1,22 @@
-"use client"
 import Navbar from "@/Component/Navbar/page";
-import About from "../Component/Aboutme/page";
-import Experience from "../Component/Experience/page";
-import Footer from "../Component/Footer/page";
-import Intro from "../Component/Introduction/page";
-import Project from "../Component/Projects/page";
-import { Skills } from "../Component/Skills/page";
-import Line from "@/Component/Line";
+import Hero from "@/Component/Introduction/page";
+import Now from "@/Component/Now/page";
+import Stats from "@/Component/Stats/page";
+import Experience from "@/Component/Experience/page";
+import Project from "@/Component/Projects/page";
+import Toolkit from "@/Component/Toolkit/page";
+import Footer from "@/Component/Footer/page";
 
 export default function Home() {
   return (
-    <div className="min-h-screen">
-      <div className="w-full md:h-screen flex flex-col justify-start">
-        <Navbar />
-        <Intro />
-      </div>
-      <Line className="my-16 md:mt-0" />
-      <div id="skills" className=""><Skills /></div>
-      <div id="experience"><Experience /></div>
-      <div id="about"><About /></div>
-      <div id="project"><Project /></div>
+    <div className="min-h-screen bg-ink text-paper">
+      <Navbar />
+      <Hero />
+      <Now />
+      <Stats />
+      <Experience />
+      <Project />
+      <Toolkit />
       <Footer />
     </div>
   );

@@ -1,38 +1,24 @@
-"use client"
-import React from 'react';
-import { Person } from './person_svg';
-import SocialComponent from './Social';
+import { Eyebrow } from "@/components/ui/eyebrow";
+import { ShaderBackground } from "@/components/ui/icey-night-shards";
 
+export default function Hero() {
+  return (
+    <section id="top" className="relative overflow-hidden border-b border-line">
+      <ShaderBackground className="pointer-events-none absolute inset-0 h-full w-full" />
 
+      <div className="relative mx-auto flex min-h-[91vh] max-w-6xl flex-col justify-center px-6 py-24">
+        <Eyebrow>Available for work — Gurugram, IN</Eyebrow>
 
-const Intro = () => {
-    return (
-        <div className='pt-20 px-6'>
-            <div className='flex-col md:grid md:grid-cols-12 text-black'>
-                <div className='md:col-span-4'>
-                    <div className='hidden md:block'>
-                        <Person />
-                    </div>
-                </div>
-                <div className='md:col-span-1'></div>
-                <div className='md:col-span-7 flex flex-col'>
-                    <div>
-                        <h1 className="text-5xl md:text-6xl font-bold text-black !leading-tight tracking-tight">
-                        Hello I&apos;m <span className="font-extrabold">Krishna Dobhal.</span>
-                        <br />
-                        <span className="font-bold text-white [text-shadow:_0_0_2px_black] md:[-webkit-text-stroke:2px_black]">
-                            Software Developer
-                        </span>
-                        <br />
-                        Based In <span className="font-extrabold">Gurugram.</span>
-                    </h1>
-                    </div>
-                    <div className="flex justify-center md:justify-start mt-14 md:mt-14"><SocialComponent /></div>
-                </div>
-
-            </div>
-        </div>
-    );
-};
-
-export default Intro;
+        <h1 className="text-display mt-8 max-w-4xl [overflow-wrap:anywhere]">
+          Backend systems
+          <br />
+          and interfaces
+          <br />
+          that hold up
+          <br />
+          <span className="text-amber">under load.</span>
+        </h1>
+      </div>
+    </section>
+  );
+}
