@@ -10,7 +10,7 @@ const CATEGORIES = [
 
 export default function Toolkit() {
   return (
-    <section className="border-b border-line">
+    <section id="toolkit" className="border-b border-line">
       <div className="mx-auto grid max-w-6xl gap-10 px-6 py-20 md:grid-cols-12">
         <div className="md:col-span-3">
           <SectionIndex label="Toolkit" number="03" />

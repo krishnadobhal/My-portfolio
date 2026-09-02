@@ -9,7 +9,7 @@ const STATS = [
 
 export default function Stats() {
   return (
-    <section className="border-b border-line">
+    <section id="stats" className="border-b border-line">
       <div className="mx-auto grid max-w-6xl grid-cols-2 gap-x-6 gap-y-10 px-6 py-16 md:grid-cols-4">
         {STATS.map((stat) => (
           <div key={stat.label}>

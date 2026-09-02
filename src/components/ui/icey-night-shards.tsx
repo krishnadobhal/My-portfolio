@@ -307,6 +307,15 @@ const UNIFORMS = {
 
 const pendingContextReleases = new WeakMap<HTMLCanvasElement, number>()
 
+type RGB = [number, number, number]
+
+const hexToRgb = (hex: string): RGB | null => {
+  const m = /^#?([0-9a-f]{6})$/i.exec(hex.trim())
+  if (!m) return null
+  const n = parseInt(m[1], 16)
+  return [((n >> 16) & 255) / 255, ((n >> 8) & 255) / 255, (n & 255) / 255]
+}
+
 export function ShaderBackground({ className }: { className?: string }) {
   const canvasRef = useRef<HTMLCanvasElement>(null)
 
@@ -476,6 +485,25 @@ export function ShaderBackground({ className }: { className?: string }) {
       updatePointerTarget()
       requestRender()
     }
+    // Accent palette follows the --color-amber token (see AccentPicker).
+    // colors[2] is the accent itself, colors[1] its deep mix toward ink.
+    const palette = new Float32Array(UNIFORMS.colors.flat())
+    const ink = UNIFORMS.colors[0]
+    const accent: RGB = [...UNIFORMS.colors[2]]
+    let accentTarget: RGB = [...accent]
+    const readAccent = () => {
+      const rgb = hexToRgb(
+        getComputedStyle(document.documentElement).getPropertyValue(
+          "--color-amber",
+        ),
+      )
+      if (!rgb) return
+      accentTarget = rgb
+      requestRender()
+    }
+    window.addEventListener("accentchange", readAccent)
+    readAccent()
+
     window.addEventListener("resize", updateLayout)
     if (UNIFORMS.cursorEnabled) {
       window.addEventListener("pointermove", onPointerMove, { passive: true })
@@ -518,6 +546,17 @@ export function ShaderBackground({ className }: { className?: string }) {
       mouseX += (targetX - mouseX) * follow
       mouseY += (targetY - mouseY) * follow
       cursorPresence += (targetPresence - cursorPresence) * follow
+      let accentSettling = false
+      for (let i = 0; i < 3; i++) {
+        const delta = accentTarget[i] - accent[i]
+        if (Math.abs(delta) > 0.002) {
+          accent[i] += delta * follow
+          accentSettling = true
+        } else accent[i] = accentTarget[i]
+        palette[3 + i] = ink[i] + (accent[i] - ink[i]) * 0.43
+        palette[6 + i] = accent[i]
+      }
+      gl.uniform3fv(uni.colors, palette)
       resizeCanvas()
       const width = canvas.width
       const height = canvas.height
@@ -547,7 +586,7 @@ export function ShaderBackground({ className }: { className?: string }) {
         Math.abs(targetX - mouseX) > 0.001 ||
         Math.abs(targetY - mouseY) > 0.001 ||
         Math.abs(targetPresence - cursorPresence) > 0.001
-      if (timeAnimated || pointerSettling) requestRender()
+      if (timeAnimated || pointerSettling || accentSettling) requestRender()
       else lastNow = null
     }
     requestRender()
@@ -558,6 +597,7 @@ export function ShaderBackground({ className }: { className?: string }) {
       intersectionObserver.disconnect()
       document.removeEventListener("visibilitychange", onVisibilityChange)
       window.removeEventListener("resize", updateLayout)
+      window.removeEventListener("accentchange", readAccent)
       if (UNIFORMS.cursorEnabled) {
         window.removeEventListener("pointermove", onPointerMove)
         window.removeEventListener("pointercancel", onPointerLeave)

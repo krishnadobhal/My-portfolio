@@ -1,3 +1,4 @@
+import { AccentPicker } from "@/components/ui/accent-picker";
 import { Eyebrow } from "@/components/ui/eyebrow";
 import { ShaderBackground } from "@/components/ui/icey-night-shards";
 
@@ -19,6 +20,8 @@ export default function Hero() {
           <span className="text-amber">under load.</span>
         </h1>
       </div>
+
+      <AccentPicker className="absolute bottom-6 right-6 z-10" />
     </section>
   );
 }

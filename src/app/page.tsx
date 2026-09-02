@@ -6,11 +6,13 @@ import Experience from "@/Component/Experience/page";
 import Project from "@/Component/Projects/page";
 import Toolkit from "@/Component/Toolkit/page";
 import Footer from "@/Component/Footer/page";
+import { SectionRail } from "@/components/ui/section-rail";
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-ink text-paper">
       <Navbar />
+      <SectionRail />
       <Hero />
       <Now />
       <Stats />

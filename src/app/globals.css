@@ -23,6 +23,24 @@
   * {
     @apply border-line;
   }
+  *,
+  *::before,
+  *::after {
+    transition:
+      background-color 400ms ease,
+      color 400ms ease,
+      border-color 400ms ease,
+      fill 400ms ease,
+      stroke 400ms ease,
+      outline-color 400ms ease;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      transition-duration: 0ms;
+    }
+  }
   html {
     @apply overflow-x-clip;
   }
@@ -33,21 +51,21 @@
     background: var(--color-amber);
     color: var(--color-ink);
   }
+  #contact ::selection {
+    background: var(--color-ink);
+    color: var(--color-amber);
+  }
   :focus-visible {
     outline: 2px solid var(--color-amber);
     outline-offset: 2px;
   }
+  /* Native scrollbar hidden — SectionRail is the scroll indicator. */
   ::-webkit-scrollbar {
-    width: 10px;
-  }
-  ::-webkit-scrollbar-track {
-    background: var(--color-ink);
-  }
-  ::-webkit-scrollbar-thumb {
-    background: var(--color-line-strong);
+    width: 0;
+    height: 0;
   }
   html {
-    scrollbar-color: var(--color-line-strong) var(--color-ink);
+    scrollbar-width: none;
   }
 }
 

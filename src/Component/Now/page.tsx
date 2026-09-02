@@ -13,7 +13,7 @@ const STACK = [
 
 export default function Now() {
   return (
-    <section className="border-b border-line">
+    <section id="now" className="border-b border-line">
       <div className="mx-auto max-w-6xl px-6 py-14">
         <div className="grid gap-6 md:grid-cols-12">
           <div className="text-label text-amber md:col-span-2">Now</div>
