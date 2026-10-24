@@ -26,12 +26,6 @@ export default function Footer() {
             </a>
           </div>
           <div>
-            <div className="text-label text-ink/60">Phone</div>
-            <a href="tel:+918882799710" className="text-body mt-2 block hover:underline">
-              +91 88827 99710
-            </a>
-          </div>
-          <div>
             <div className="text-label text-ink/60">Elsewhere</div>
             <div className="mt-2 flex flex-col gap-1">
               {ELSEWHERE.map((link) => (
