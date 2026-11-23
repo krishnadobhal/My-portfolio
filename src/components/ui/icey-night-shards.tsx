@@ -316,7 +316,15 @@ const hexToRgb = (hex: string): RGB | null => {
   return [((n >> 16) & 255) / 255, ((n >> 8) & 255) / 255, (n & 255) / 255]
 }
 
-export function ShaderBackground({ className }: { className?: string }) {
+export function ShaderBackground({
+  className,
+  overrides,
+}: {
+  className?: string
+  overrides?: Partial<typeof UNIFORMS>
+}) {
+  // overrides must be a stable (module-level) object; read once on mount.
+  const U = { ...UNIFORMS, ...overrides }
   const canvasRef = useRef<HTMLCanvasElement>(null)
 
   useEffect(() => {
@@ -365,41 +373,41 @@ export function ShaderBackground({ className }: { className?: string }) {
       space: gl.getUniformLocation(program, "u_space"),
       cursor: gl.getUniformLocation(program, "u_cursor"),
     }
-    gl.uniform3fv(uni.colors, new Float32Array(UNIFORMS.colors.flat()))
+    gl.uniform3fv(uni.colors, new Float32Array(U.colors.flat()))
     gl.uniform4f(
       uni.shape,
-      UNIFORMS.scale,
-      UNIFORMS.intensity,
-      UNIFORMS.paramA,
-      UNIFORMS.warp,
+      U.scale,
+      U.intensity,
+      U.paramA,
+      U.warp,
     )
     gl.uniform4f(
       uni.surface,
-      UNIFORMS.detail,
-      UNIFORMS.contrast,
-      UNIFORMS.brightness,
-      UNIFORMS.saturation,
+      U.detail,
+      U.contrast,
+      U.brightness,
+      U.saturation,
     )
     gl.uniform4f(
       uni.finish,
-      UNIFORMS.hue,
-      UNIFORMS.vignette,
-      UNIFORMS.blur,
-      UNIFORMS.grain,
+      U.hue,
+      U.vignette,
+      U.blur,
+      U.grain,
     )
     gl.uniform4f(
       uni.transform,
-      UNIFORMS.seed,
-      UNIFORMS.rotate,
-      UNIFORMS.drift,
-      UNIFORMS.oklab,
+      U.seed,
+      U.rotate,
+      U.drift,
+      U.oklab,
     )
     gl.uniform4f(
       uni.cursor,
       0,
-      UNIFORMS.cursorEffect,
-      UNIFORMS.cursorStrength,
-      UNIFORMS.cursorRadius,
+      U.cursorEffect,
+      U.cursorStrength,
+      U.cursorRadius,
     )
 
     let targetX = 0
@@ -418,7 +426,7 @@ export function ShaderBackground({ className }: { className?: string }) {
     let inView = true
     let disposed = false
     const start = performance.now()
-    const timeAnimated = Math.abs(UNIFORMS.timeScale) > 0.0001
+    const timeAnimated = Math.abs(U.timeScale) > 0.0001
 
     const resizeCanvas = () => {
       const dpr = Math.min(window.devicePixelRatio || 1, 2)
@@ -487,9 +495,9 @@ export function ShaderBackground({ className }: { className?: string }) {
     }
     // Accent palette follows the --color-amber token (see AccentPicker).
     // colors[2] is the accent itself, colors[1] its deep mix toward ink.
-    const palette = new Float32Array(UNIFORMS.colors.flat())
-    const ink = UNIFORMS.colors[0]
-    const accent: RGB = [...UNIFORMS.colors[2]]
+    const palette = new Float32Array(U.colors.flat())
+    const ink = U.colors[0]
+    const accent: RGB = [...U.colors[2]]
     let accentTarget: RGB = [...accent]
     const readAccent = () => {
       const rgb = hexToRgb(
@@ -505,7 +513,7 @@ export function ShaderBackground({ className }: { className?: string }) {
     readAccent()
 
     window.addEventListener("resize", updateLayout)
-    if (UNIFORMS.cursorEnabled) {
+    if (U.cursorEnabled) {
       window.addEventListener("pointermove", onPointerMove, { passive: true })
       window.addEventListener("pointercancel", onPointerLeave)
       window.addEventListener("scroll", updateLayout, true)
@@ -564,22 +572,22 @@ export function ShaderBackground({ className }: { className?: string }) {
         uni.scene,
         width,
         height,
-        ((now - start) / 1000) * UNIFORMS.timeScale,
-        UNIFORMS.colorCount,
+        ((now - start) / 1000) * U.timeScale,
+        U.colorCount,
       )
       gl.uniform4f(
         uni.space,
-        UNIFORMS.offsetX,
-        UNIFORMS.offsetY,
+        U.offsetX,
+        U.offsetY,
         mouseX,
         mouseY,
       )
       gl.uniform4f(
         uni.cursor,
-        UNIFORMS.cursorEnabled ? cursorPresence : 0,
-        UNIFORMS.cursorEffect,
-        UNIFORMS.cursorStrength,
-        UNIFORMS.cursorRadius,
+        U.cursorEnabled ? cursorPresence : 0,
+        U.cursorEffect,
+        U.cursorStrength,
+        U.cursorRadius,
       )
       gl.drawArrays(gl.TRIANGLES, 0, 3)
       const pointerSettling =
@@ -598,7 +606,7 @@ export function ShaderBackground({ className }: { className?: string }) {
       document.removeEventListener("visibilitychange", onVisibilityChange)
       window.removeEventListener("resize", updateLayout)
       window.removeEventListener("accentchange", readAccent)
-      if (UNIFORMS.cursorEnabled) {
+      if (U.cursorEnabled) {
         window.removeEventListener("pointermove", onPointerMove)
         window.removeEventListener("pointercancel", onPointerLeave)
         window.removeEventListener("scroll", updateLayout, true)

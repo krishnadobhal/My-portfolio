@@ -1,19 +1,34 @@
 "use client";
 
 import { useState } from "react";
+import { usePathname, useRouter } from "next/navigation";
 import { useLenis } from "@/components/providers/lenis-provider";
 
 const LINKS = [
   { label: "Work", id: "work" },
   { label: "Projects", id: "projects" },
+  { label: "Open Source", id: "open-source", href: "/open-source" },
   { label: "Contact", id: "contact" },
 ];
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const lenis = useLenis();
+  const router = useRouter();
+  const pathname = usePathname();
 
-  const scrollTo = (id: string) => {
+  const scrollTo = (id: string, href?: string) => {
+    if (href) {
+      router.push(href);
+      setOpen(false);
+      return;
+    }
+    // Off the home page the section isn't here: go home, then to the hash.
+    if (pathname !== "/" && id !== "contact") {
+      router.push(id === "top" ? "/" : `/#${id}`);
+      setOpen(false);
+      return;
+    }
     const el = document.getElementById(id);
     if (el) {
       if (lenis) lenis.scrollTo(el);
@@ -33,7 +48,7 @@ export default function Navbar() {
           {LINKS.map((link) => (
             <button
               key={link.id}
-              onClick={() => scrollTo(link.id)}
+              onClick={() => scrollTo(link.id, link.href)}
               className="text-nav text-paper/85 transition-colors hover:text-amber"
             >
               {link.label}
@@ -62,7 +77,7 @@ export default function Navbar() {
             {LINKS.map((link) => (
               <button
                 key={link.id}
-                onClick={() => scrollTo(link.id)}
+                onClick={() => scrollTo(link.id, link.href)}
                 className="text-nav text-left text-paper/85"
               >
                 {link.label}
